@@ -1,9 +1,10 @@
 import Expenses from './components/Expenses/Expenses'
 import NewExpense from './components/NewExpense/NewExpense'
+import React from 'react'
 
 function App() {
 
-  const expenses = [
+  const list = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -25,9 +26,15 @@ function App() {
     },
   ]
 
+  const [expenses, setExpenses] = React.useState(list)
+
+  const newExpenseHandler = (newExpense) => {
+    setExpenses([...expenses, newExpense])
+  }
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense newExpense={newExpenseHandler} />
       <Expenses expenses={ expenses } />
     </div>
   );
