@@ -35,6 +35,7 @@ const ExpenseForm = (props) => {
         setEnteredTitle('')
         setEnteredAmount('')
         setEnteredDate('')
+        props.toggle()
     }
 
     return (
@@ -53,6 +54,7 @@ const ExpenseForm = (props) => {
                     <input type="date" min="2019-01-01" max="2023-03-03" value={enteredDate} onChange={dateChangeHandler} />
                 </div>
                 <div className="new-expense__actions">
+                    <button id="button" type="button" onClick={props.toggle}>Cancel</button>
                     <button type="submit">Add Expense</button>
                 </div>
             </div>
